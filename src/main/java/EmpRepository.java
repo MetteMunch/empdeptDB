@@ -13,9 +13,10 @@ public class EmpRepository {
     }
 
     public void getConnection() {
-        String database = "jdbc:mysql://localhost:3306/emp_dept";
-        String username = "mmh";
-        String password = "mmh1974";
+
+        String database = System.getenv("DB_URL");
+        String username = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASS");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(database, username, password);
